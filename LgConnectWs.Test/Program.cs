@@ -2,6 +2,8 @@
 
 using LgConnectWs;
 using LgConnectWs.Packets.ClientBound;
+using LgConnectWs.Payloads;
+using LgConnectWs.SubscribePayloads;
 using Newtonsoft.Json;
 
 var lgConnect = new LgConnect();
@@ -21,7 +23,16 @@ lgConnect.Paired += async (sender, s) =>
 {
     Console.WriteLine($"Paired with client id: {s}");
 
-    await lgConnect.Request("ssap://system/turnOff");
+    await lgConnect.Request("ssap://tv/openChannel", new OpenChannelPayload()
+    {
+        ChannelNumber = "1"
+    });
+
+    await lgConnect.Subscribe<CurrentChannelPayload>("ssap://tv/getCurrentChannel", arg =>
+    {
+        Console.WriteLine($"Current channel: {arg.ChannelNumber}");
+        return Task.CompletedTask;
+    });
 };
 
 lgConnect.Disconnected += (sender, eventArgs) =>
