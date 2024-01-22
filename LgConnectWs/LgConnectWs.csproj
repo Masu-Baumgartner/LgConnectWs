@@ -4,6 +4,15 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>LgConnectWs</Title>
+        <Description>A wrapper for the lg connect websocket api in c#</Description>
+        <Copyright>Marcel Baumgartner</Copyright>
+        <PackageProjectUrl>https://github.com/Marcel-Baumgartner/LgConnectWs</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/Marcel-Baumgartner/LgConnectWs/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/Marcel-Baumgartner/LgConnectWs</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>lgconnect</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
